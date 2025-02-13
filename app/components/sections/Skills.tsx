@@ -1,7 +1,7 @@
 "use client";
 
 import { Badge } from "@/app/components/ui/badge";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 import { useMemo, useRef } from "react";
 
 const AnimatedBadge = ({
@@ -11,7 +11,7 @@ const AnimatedBadge = ({
 }: {
     badge: string;
     index: number;
-    scrollYProgress: any;
+    scrollYProgress: MotionValue<number>;
 }) => {
     const start = index * 0.03;
     const end = start + 0.05;
