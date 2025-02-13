@@ -16,8 +16,9 @@ const Intro = () => {
                     </p>
                 </div>
                 <p className="font-medium transition-colors duration-200">
-                    Kamusta 👋🏼 — I'm a web enthusiast based in the Philippines,
-                    passionate about delivering high-quality digital products.{" "}
+                    Kamusta 👋🏼 — I&apos;m a web enthusiast based in the
+                    Philippines, passionate about delivering high-quality
+                    digital products.{" "}
                     <span className="text-highlight transition-colors duration-200">
                         My focus is on crafting intuitive, user-centered
                         software that empowers users and drives meaningful

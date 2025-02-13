@@ -32,7 +32,7 @@ const Preloader = () => {
             },
             index == 0 ? 1000 : 150,
         );
-    }, [index]);
+    }, [index, words.length]);
 
     // Define SVG paths based on viewport dimensions
     const initialPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${dimension.height} Q${dimension.width / 2} ${dimension.height + 300} 0 ${dimension.height} L0 0`;

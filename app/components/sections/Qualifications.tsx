@@ -138,9 +138,9 @@ const Qualifications = () => {
                             <li className="text-sm text-muted transition-colors duration-200">
                                 Received the Best in Thesis Award for the most
                                 outstanding undergraduate research, titled
-                                "Implementation of Mobile Game Using Periodic
-                                Table for National Academy of Science and
-                                Technology."
+                                &quot;Implementation of Mobile Game Using
+                                Periodic Table for National Academy of Science
+                                and Technology.&quot;
                             </li>
                         </ul>
                     </li>
