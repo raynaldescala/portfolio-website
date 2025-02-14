@@ -1,4 +1,4 @@
-"use client"; // Ensures this is client-only
+"use client";
 
 import { ThemeProvider } from "next-themes";
 import { useEffect, useState } from "react";
@@ -15,7 +15,7 @@ export default function ClientThemeProvider({
     }, []);
 
     return mounted ? (
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
             {children}
         </ThemeProvider>
     ) : null;
