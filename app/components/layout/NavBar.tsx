@@ -179,7 +179,7 @@ const NavBar = () => {
                                         initial="initial"
                                         animate="enter"
                                         exit="exit"
-                                        className="fixed right-[-32px] top-0 h-screen w-[300px] bg-secondary"
+                                        className="fixed right-[-32px] top-0 h-dvh w-[300px] bg-secondary"
                                     >
                                         <div className="box-border flex h-full flex-col justify-between p-16 pb-0 pt-20">
                                             <div

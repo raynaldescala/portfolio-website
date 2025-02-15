@@ -68,7 +68,7 @@ const Preloader = () => {
             variants={slideUp}
             initial="initial"
             exit="exit"
-            className="fixed inset-0 z-[100] flex h-screen w-screen cursor-wait items-center justify-center bg-foreground text-background"
+            className="fixed inset-0 z-[100] flex h-dvh w-screen cursor-wait items-center justify-center bg-foreground text-background"
         >
             {dimension.width > 0 && (
                 <>

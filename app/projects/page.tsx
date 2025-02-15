@@ -27,7 +27,7 @@ const ProjectsPage = () => {
     }, []);
 
     return (
-        <div className="mx-auto flex min-h-screen max-w-3xl flex-col px-8">
+        <div className="mx-auto flex min-h-dvh max-w-3xl flex-col px-8">
             <NavBar />
             <main className="flex-1">
                 <div className="grid gap-8">

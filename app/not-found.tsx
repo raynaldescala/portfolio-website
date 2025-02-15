@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function NotFoundPage() {
     return (
-        <div className="mx-auto flex min-h-screen max-w-3xl flex-col px-8">
+        <div className="mx-auto flex min-h-dvh max-w-3xl flex-col px-8">
             <NavBar />
             <div className="relative flex flex-1 items-center justify-center py-8">
                 <div className="absolute inset-0">
