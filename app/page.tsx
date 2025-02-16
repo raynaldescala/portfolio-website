@@ -20,11 +20,12 @@ export default function HomePage() {
 
     useEffect(() => {
         // Check if coming from projects page using sessionStorage
-        const fromProjects = sessionStorage.getItem("fromProjects") === "true";
+        const fromProjectsOr404 =
+            sessionStorage.getItem("fromProjectsOr404") === "true";
 
         // If we're coming from projects, don't show preloader
-        if (fromProjects) {
-            sessionStorage.removeItem("fromProjects");
+        if (fromProjectsOr404) {
+            sessionStorage.removeItem("fromProjectsOr404");
             setLoading(false);
             return;
         }
@@ -53,7 +54,7 @@ export default function HomePage() {
     useEffect(() => {
         const handleBeforeUnload = () => {
             if (pathname === "/projects") {
-                sessionStorage.setItem("fromProjects", "true");
+                sessionStorage.setItem("fromProjectsOr404", "true");
             }
         };
 

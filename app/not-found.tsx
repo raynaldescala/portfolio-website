@@ -1,14 +1,14 @@
+"use client";
+
 import Footer from "@/app/components/layout/Footer";
 import NavBar from "@/app/components/layout/NavBar";
 import { Button } from "@/app/components/ui/button";
-import { Metadata } from "next";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-    title: "404 | Raynald Escala's Portfolio",
-};
+import { usePathname } from "next/navigation";
 
 export default function NotFoundPage() {
+    const pathname = usePathname();
+
     return (
         <div className="mx-auto flex min-h-dvh max-w-3xl flex-col px-8">
             <NavBar />
@@ -38,7 +38,22 @@ export default function NotFoundPage() {
                     </p>
 
                     <Button asChild variant="secondary" className="px-6 py-3">
-                        <Link href="/">Back to home</Link>
+                        <Link
+                            href="/"
+                            onClick={() => {
+                                if (
+                                    pathname === "/projects" ||
+                                    !["/", "/projects"].includes(pathname)
+                                ) {
+                                    sessionStorage.setItem(
+                                        "fromProjectsOr404",
+                                        "true",
+                                    );
+                                }
+                            }}
+                        >
+                            Back to home
+                        </Link>
                     </Button>
                 </div>
             </div>

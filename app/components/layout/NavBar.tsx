@@ -109,7 +109,7 @@ const NavBar = () => {
                                     !["/", "/projects"].includes(pathname)
                                 ) {
                                     sessionStorage.setItem(
-                                        "fromProjects",
+                                        "fromProjectsOr404",
                                         "true",
                                     );
                                 }
@@ -132,7 +132,7 @@ const NavBar = () => {
                                             )
                                         ) {
                                             sessionStorage.setItem(
-                                                "fromProjects",
+                                                "fromProjectsOr404",
                                                 "true",
                                             );
                                         }
@@ -164,7 +164,7 @@ const NavBar = () => {
                                     onClick={() => {
                                         if (pathname === "/projects") {
                                             sessionStorage.setItem(
-                                                "fromProjects",
+                                                "fromProjectsOr404",
                                                 "true",
                                             );
                                         }
@@ -273,7 +273,7 @@ const NavBar = () => {
                                                                         )
                                                                     ) {
                                                                         sessionStorage.setItem(
-                                                                            "fromProjects",
+                                                                            "fromProjectsOr404",
                                                                             "true",
                                                                         );
                                                                     }
