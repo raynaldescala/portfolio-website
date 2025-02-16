@@ -4,11 +4,42 @@ import Footer from "@/app/components/layout/Footer";
 import NavBar from "@/app/components/layout/NavBar";
 import { Badge } from "@/app/components/ui/badge";
 import { Button } from "@/app/components/ui/button";
+import { motion } from "framer-motion";
 import Lenis from "lenis";
 import { Github, Globe } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
+
+// Variants for the heading
+const headingVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: {
+        opacity: 1,
+        x: 0,
+        transition: { duration: 0.6, ease: "easeOut" },
+    },
+};
+
+// Variants for the cards container
+const cardsContainerVariants = {
+    hidden: {},
+    visible: {
+        transition: {
+            staggerChildren: 0.2, // Automatically staggers children
+        },
+    },
+};
+
+// Variants for individual cards
+const cardVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.6, ease: "easeOut" },
+    },
+};
 
 const ProjectsPage = () => {
     useEffect(() => {
@@ -31,11 +62,24 @@ const ProjectsPage = () => {
             <NavBar />
             <main className="flex-1">
                 <div className="grid gap-8">
-                    <h2 className="font-serif text-4xl tracking-[0.6px] transition-colors duration-200 sm:text-5xl">
+                    <motion.h2
+                        className="font-serif text-4xl tracking-[0.6px] transition-colors duration-200 sm:text-5xl"
+                        variants={headingVariants}
+                        initial="hidden"
+                        animate="visible"
+                    >
                         my projects
-                    </h2>
-                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                        <div className="border-gray-90 grid grid-rows-[1fr_auto] gap-6 rounded-lg border p-6">
+                    </motion.h2>
+                    <motion.div
+                        className="grid grid-cols-1 gap-4 sm:grid-cols-2"
+                        variants={cardsContainerVariants}
+                        initial="hidden"
+                        animate="visible"
+                    >
+                        <motion.div
+                            className="border-gray-90 grid grid-rows-[1fr_auto] gap-6 rounded-lg border p-6"
+                            variants={cardVariants}
+                        >
                             <div>
                                 <Image
                                     src="/thumbnails/pokehaven.webp"
@@ -97,8 +141,11 @@ const ProjectsPage = () => {
                                     </Link>
                                 </div>
                             </div>
-                        </div>
-                        <div className="border-gray-90 grid grid-rows-[1fr_auto] gap-6 rounded-lg border p-6">
+                        </motion.div>
+                        <motion.div
+                            className="border-gray-90 grid grid-rows-[1fr_auto] gap-6 rounded-lg border p-6"
+                            variants={cardVariants}
+                        >
                             <div>
                                 <Image
                                     src="/thumbnails/pokehaven.webp"
@@ -160,11 +207,11 @@ const ProjectsPage = () => {
                                     </Link>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </main>
-            <div className="mt-16 sm:mt-auto">
+            <div className="mt-16">
                 <Footer />
             </div>
         </div>

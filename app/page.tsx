@@ -15,26 +15,29 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function HomePage() {
-    const [loading, setLoading] = useState(false); // Start with false instead of true
+    // `loading` controls the preloader's visibility (and exit animation).
+    const [loading, setLoading] = useState(false);
+    // `preloaderHasPlayed` tracks whether the preloader was ever shown.
+    const [preloaderHasPlayed, setPreloaderHasPlayed] = useState(false);
     const pathname = usePathname();
 
     useEffect(() => {
-        // Check if coming from projects page using sessionStorage
         const fromProjectsOr404 =
             sessionStorage.getItem("fromProjectsOr404") === "true";
 
-        // If we're coming from projects, don't show preloader
         if (fromProjectsOr404) {
+            // Preloader was skipped.
             sessionStorage.removeItem("fromProjectsOr404");
             setLoading(false);
+            setPreloaderHasPlayed(false);
             return;
         }
 
-        // Otherwise, show preloader
+        // Otherwise, show the preloader.
         setLoading(true);
+        setPreloaderHasPlayed(true);
         const timer = setTimeout(() => {
             setLoading(false);
-
             if (window.location.hash === "#contact") {
                 const contactEl = document.getElementById("contact");
                 if (contactEl) {
@@ -50,7 +53,7 @@ export default function HomePage() {
         return () => clearTimeout(timer);
     }, []);
 
-    // Set flag when leaving projects page
+    // Set flag when leaving the /projects page.
     useEffect(() => {
         const handleBeforeUnload = () => {
             if (pathname === "/projects") {
@@ -61,7 +64,7 @@ export default function HomePage() {
         window.addEventListener("beforeunload", handleBeforeUnload);
         return () =>
             window.removeEventListener("beforeunload", handleBeforeUnload);
-    }, []);
+    }, [pathname]);
 
     useEffect(() => {
         if (loading) {
@@ -95,10 +98,20 @@ export default function HomePage() {
                 {loading && <Preloader />}
             </AnimatePresence>
             <div className="mx-auto min-w-[360px] max-w-3xl px-8">
-                <NavBar />
+                <NavBar
+                    preloaderDone={!loading}
+                    preloaderHasPlayed={preloaderHasPlayed}
+                />
                 <div className="grid gap-16">
-                    <Intro />
-                    <Qualifications />
+                    {/* Pass both states so Intro can decide when to animate */}
+                    <Intro
+                        preloaderDone={!loading}
+                        preloaderHasPlayed={preloaderHasPlayed}
+                    />
+                    <Qualifications
+                        preloaderDone={!loading}
+                        preloaderHasPlayed={preloaderHasPlayed}
+                    />
                     <Skills />
                     <RecentProjects />
                     <Contact />

@@ -1,11 +1,24 @@
+import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 
+const footerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.6, ease: "easeOut" },
+    },
+};
+
 const Footer = () => {
     return (
-        // <footer className="border-t border-gray-900 py-8">
-
-        <footer className="pb-8">
+        <motion.footer
+            className="pb-8"
+            variants={footerVariants}
+            initial="hidden"
+            animate="visible"
+        >
             <div className="flex flex-col-reverse items-center justify-between gap-y-8 sm:flex-row">
                 <p className="text-xs text-foreground/65 transition-colors duration-200">
                     © {new Date().getFullYear()} All rights reserved.
@@ -48,7 +61,7 @@ const Footer = () => {
                     </ul>
                 </div>
             </div>
-        </footer>
+        </motion.footer>
     );
 };
 

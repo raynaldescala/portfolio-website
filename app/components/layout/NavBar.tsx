@@ -7,13 +7,27 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
+interface NavBarProps {
+    preloaderDone?: boolean; // Optional with default value
+    preloaderHasPlayed?: boolean; // Optional with default value
+}
+
 const navItems = [
     { title: "Home", href: "/" },
     { title: "Projects", href: "/projects" },
     { title: "Contact", href: "/#contact" },
 ];
 
-const NavBar = () => {
+const navbarVariants = {
+    hidden: { opacity: 0, y: -50 },
+    visible: (customDelay: number) => ({
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.8, delay: customDelay, ease: "easeOut" },
+    }),
+};
+
+const NavBar = ({ preloaderDone, preloaderHasPlayed }: NavBarProps) => {
     const [isActive, setIsActive] = useState(false);
 
     const pathname = usePathname();
@@ -96,8 +110,22 @@ const NavBar = () => {
         closed: { scale: 0, transition: { duration: 0.4 } },
     };
 
+    const animateState = preloaderHasPlayed
+        ? preloaderDone
+            ? "visible"
+            : "hidden"
+        : "visible";
+
+    const delayValue = preloaderHasPlayed ? 0.75 : 0;
+
     return (
-        <header className="bg-back sticky top-0 z-50 mb-8 bg-background/75 py-6 backdrop-blur-sm">
+        <motion.header
+            className="bg-back sticky top-0 z-50 mb-8 bg-background/75 py-6 backdrop-blur-sm"
+            variants={navbarVariants}
+            custom={delayValue}
+            initial="hidden"
+            animate={animateState}
+        >
             <nav>
                 <div className="flex items-center justify-between">
                     <div>
@@ -310,7 +338,7 @@ const NavBar = () => {
                     </div>
                 </div>
             </nav>
-        </header>
+        </motion.header>
     );
 };
 

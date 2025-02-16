@@ -3,8 +3,27 @@
 import Footer from "@/app/components/layout/Footer";
 import NavBar from "@/app/components/layout/NavBar";
 import { Button } from "@/app/components/ui/button";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
+const contentVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.8, ease: "easeOut", staggerChildren: 0.2 },
+    },
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.8, ease: "easeOut" },
+    },
+};
 
 export default function NotFoundPage() {
     const pathname = usePathname();
@@ -12,7 +31,12 @@ export default function NotFoundPage() {
     return (
         <div className="mx-auto flex min-h-dvh max-w-3xl flex-col px-8">
             <NavBar />
-            <div className="relative flex flex-1 items-center justify-center py-8">
+            <motion.div
+                className="relative flex flex-1 items-center justify-center py-8"
+                variants={contentVariants}
+                initial="hidden"
+                animate="visible"
+            >
                 <div className="absolute inset-0">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -26,38 +50,57 @@ export default function NotFoundPage() {
                     </svg>
                 </div>
 
-                <div className="relative z-10 flex w-full flex-col items-center justify-center text-center">
-                    <h1 className="mb-4 text-4xl font-black text-foreground sm:text-5xl">
+                <motion.div
+                    className="relative z-10 flex w-full flex-col items-center justify-center text-center"
+                    variants={itemVariants}
+                >
+                    <motion.h1
+                        className="mb-4 text-4xl font-black text-foreground sm:text-5xl"
+                        variants={itemVariants}
+                    >
                         Nothing to see here
-                    </h1>
+                    </motion.h1>
 
-                    <p className="mx-auto mb-8 max-w-[540px] text-lg text-muted">
+                    <motion.p
+                        className="mx-auto mb-8 max-w-[540px] text-lg text-muted"
+                        variants={itemVariants}
+                        transition={{ delay: 0.2 }}
+                    >
                         Page you are trying to open does not exist. You may have
                         mistyped the address, or the page has been moved to
                         another URL. If you think this is an error contact me.
-                    </p>
+                    </motion.p>
 
-                    <Button asChild variant="secondary" className="px-6 py-3">
-                        <Link
-                            href="/"
-                            onClick={() => {
-                                if (
-                                    pathname === "/projects" ||
-                                    !["/", "/projects"].includes(pathname)
-                                ) {
-                                    sessionStorage.setItem(
-                                        "fromProjectsOr404",
-                                        "true",
-                                    );
-                                }
-                            }}
+                    <motion.div
+                        variants={itemVariants}
+                        transition={{ delay: 0.4 }}
+                    >
+                        <Button
+                            asChild
+                            variant="secondary"
+                            className="px-6 py-3"
                         >
-                            Back to home
-                        </Link>
-                    </Button>
-                </div>
-            </div>
-            <div className="mt-16 sm:mt-auto">
+                            <Link
+                                href="/"
+                                onClick={() => {
+                                    if (
+                                        pathname === "/projects" ||
+                                        !["/", "/projects"].includes(pathname)
+                                    ) {
+                                        sessionStorage.setItem(
+                                            "fromProjectsOr404",
+                                            "true",
+                                        );
+                                    }
+                                }}
+                            >
+                                Back to home
+                            </Link>
+                        </Button>
+                    </motion.div>
+                </motion.div>
+            </motion.div>
+            <div className="mt-16">
                 <Footer />
             </div>
         </div>
