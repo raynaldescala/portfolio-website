@@ -76,7 +76,7 @@ const Preloader = () => {
                         variants={opacity}
                         initial="initial"
                         animate="enter"
-                        className="absolute z-[1] flex items-center text-[42px]"
+                        className="pointer-events-none absolute z-[1] flex items-center text-[42px]"
                     >
                         <span className="mr-[10px] block h-[10px] w-[10px] rounded-full bg-background" />
                         {words[index]}
