@@ -11,49 +11,59 @@ import Skills from "@/app/components/sections/Skills";
 import { AnimatePresence } from "framer-motion";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function HomePage() {
-    const [loading, setLoading] = useState(true);
-    const [isReload, setIsReload] = useState(false);
+    const [loading, setLoading] = useState(false); // Start with false instead of true
+    const pathname = usePathname();
 
     useEffect(() => {
-        // Check if this is a page reload
-        const navigationEntries = performance.getEntriesByType(
-            "navigation",
-        ) as PerformanceNavigationTiming[];
-        const isReloadPage = navigationEntries[0]?.type === "reload";
-        setIsReload(isReloadPage);
+        // Check if coming from projects page using sessionStorage
+        const fromProjects = sessionStorage.getItem("fromProjects") === "true";
 
+        // If we're coming from projects, don't show preloader
+        if (fromProjects) {
+            sessionStorage.removeItem("fromProjects");
+            setLoading(false);
+            return;
+        }
+
+        // Otherwise, show preloader
+        setLoading(true);
+        const timer = setTimeout(() => {
+            setLoading(false);
+
+            if (window.location.hash === "#contact") {
+                const contactEl = document.getElementById("contact");
+                if (contactEl) {
+                    contactEl.scrollIntoView({ behavior: "smooth" });
+                } else {
+                    window.scrollTo(0, 0);
+                }
+            } else {
+                window.scrollTo(0, 0);
+            }
+        }, 2000);
+
+        return () => clearTimeout(timer);
+    }, []);
+
+    // Set flag when leaving projects page
+    useEffect(() => {
         const handleBeforeUnload = () => {
-            sessionStorage.setItem("isReloading", "true");
+            if (pathname === "/projects") {
+                sessionStorage.setItem("fromProjects", "true");
+            }
         };
 
         window.addEventListener("beforeunload", handleBeforeUnload);
-
-        const reloadFlag = sessionStorage.getItem("isReloading");
-        if (reloadFlag) {
-            sessionStorage.removeItem("isReloading");
-            setLoading(true);
-
-            const timer = setTimeout(() => {
-                setLoading(false);
-                window.scrollTo(0, 0);
-            }, 2000);
-
-            return () => {
-                clearTimeout(timer);
-                window.removeEventListener("beforeunload", handleBeforeUnload);
-            };
-        } else {
-            setLoading(false);
-            return () =>
-                window.removeEventListener("beforeunload", handleBeforeUnload);
-        }
+        return () =>
+            window.removeEventListener("beforeunload", handleBeforeUnload);
     }, []);
 
     useEffect(() => {
-        if (loading && isReload) {
+        if (loading) {
             document.body.style.overflow = "hidden";
         } else {
             const timer = setTimeout(() => {
@@ -61,7 +71,7 @@ export default function HomePage() {
             }, 750);
             return () => clearTimeout(timer);
         }
-    }, [loading, isReload]);
+    }, [loading]);
 
     useEffect(() => {
         const lenis = new Lenis({
@@ -81,7 +91,7 @@ export default function HomePage() {
     return (
         <>
             <AnimatePresence mode="wait">
-                {loading && isReload && <Preloader />}
+                {loading && <Preloader />}
             </AnimatePresence>
             <div className="mx-auto min-w-[360px] max-w-3xl px-8">
                 <NavBar />

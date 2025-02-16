@@ -103,6 +103,17 @@ const NavBar = () => {
                     <div>
                         <Link
                             href="/"
+                            onClick={() => {
+                                if (
+                                    pathname === "/projects" ||
+                                    !["/", "/projects"].includes(pathname)
+                                ) {
+                                    sessionStorage.setItem(
+                                        "fromProjects",
+                                        "true",
+                                    );
+                                }
+                            }}
                             className="font-serif text-3xl leading-none transition-colors duration-200 hover:text-foreground/65"
                         >
                             re<span className="font-serif">.</span>
@@ -113,6 +124,19 @@ const NavBar = () => {
                             <li>
                                 <Link
                                     href="/"
+                                    onClick={() => {
+                                        if (
+                                            pathname === "/projects" ||
+                                            !["/", "/projects"].includes(
+                                                pathname,
+                                            )
+                                        ) {
+                                            sessionStorage.setItem(
+                                                "fromProjects",
+                                                "true",
+                                            );
+                                        }
+                                    }}
                                     className={`transition-colors duration-200 ${
                                         pathname === "/"
                                             ? "text-foreground/65"
@@ -137,6 +161,14 @@ const NavBar = () => {
                             <li>
                                 <Link
                                     href="/#contact"
+                                    onClick={() => {
+                                        if (pathname === "/projects") {
+                                            sessionStorage.setItem(
+                                                "fromProjects",
+                                                "true",
+                                            );
+                                        }
+                                    }}
                                     className="transition-colors duration-200 hover:text-foreground/65"
                                 >
                                     contact
@@ -230,9 +262,24 @@ const NavBar = () => {
                                                             <Link
                                                                 href={href}
                                                                 onClick={() => {
+                                                                    if (
+                                                                        pathname ===
+                                                                            "/projects" ||
+                                                                        ![
+                                                                            "/",
+                                                                            "/projects",
+                                                                        ].includes(
+                                                                            pathname,
+                                                                        )
+                                                                    ) {
+                                                                        sessionStorage.setItem(
+                                                                            "fromProjects",
+                                                                            "true",
+                                                                        );
+                                                                    }
                                                                     setIsActive(
                                                                         false,
-                                                                    ); // Add this line to close menu on click
+                                                                    );
                                                                     setSelectedIndicator(
                                                                         href,
                                                                     );
