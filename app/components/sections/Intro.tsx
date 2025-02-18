@@ -73,12 +73,11 @@ const Intro = ({ preloaderDone, preloaderHasPlayed }: IntroProps) => {
                 </div>
                 <p className="font-medium transition-colors duration-200">
                     Kamusta 👋🏼 — I&apos;m a web enthusiast based in the
-                    Philippines, passionate about delivering high-quality
-                    digital products.{" "}
+                    Philippines, constantly exploring new technologies to craft
+                    seamless web experiences.{" "}
                     <span className="text-highlight transition-colors duration-200">
-                        My focus is on crafting intuitive, user-centered
-                        software that empowers users and drives meaningful
-                        change.
+                        Eager to learn and transform ideas into intuitive,
+                        user-friendly solutions that simplify web interactions.
                     </span>
                 </p>
                 <div className="flex items-center gap-8">
