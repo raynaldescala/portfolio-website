@@ -99,6 +99,30 @@ export const Particles: React.FC<ParticlesProps> = ({
     const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
     const rafID = useRef<number | null>(null);
     const resizeTimeout = useRef<NodeJS.Timeout | null>(null);
+    const colorRef = useRef<number[]>(hexToRgb(color));
+
+    useEffect(() => {
+        colorRef.current = hexToRgb(color);
+    }, [color]);
+
+    const drawCircle = useCallback(
+        (circle: Circle, update = false) => {
+            if (context.current) {
+                const { x, y, translateX, translateY, size, alpha } = circle;
+                context.current.translate(translateX, translateY);
+                context.current.beginPath();
+                context.current.arc(x, y, size, 0, 2 * Math.PI);
+                context.current.fillStyle = `rgba(${colorRef.current.join(", ")}, ${alpha})`;
+                context.current.fill();
+                context.current.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+                if (!update) {
+                    circles.current.push(circle);
+                }
+            }
+        },
+        [dpr],
+    );
 
     const drawParticles = useCallback(() => {
         clearContext();
@@ -192,7 +216,7 @@ export const Particles: React.FC<ParticlesProps> = ({
             }
         });
         rafID.current = window.requestAnimationFrame(animate);
-    }, [vx, vy, staticity, ease]);
+    }, [vx, vy, staticity, ease, drawCircle]);
 
     useEffect(() => {
         if (canvasRef.current) {
@@ -268,27 +292,6 @@ export const Particles: React.FC<ParticlesProps> = ({
             magnetism,
         };
     }, [size]);
-
-    const rgb = hexToRgb(color);
-
-    const drawCircle = useCallback(
-        (circle: Circle, update = false) => {
-            if (context.current) {
-                const { x, y, translateX, translateY, size, alpha } = circle;
-                context.current.translate(translateX, translateY);
-                context.current.beginPath();
-                context.current.arc(x, y, size, 0, 2 * Math.PI);
-                context.current.fillStyle = `rgba(${rgb.join(", ")}, ${alpha})`;
-                context.current.fill();
-                context.current.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-                if (!update) {
-                    circles.current.push(circle);
-                }
-            }
-        },
-        [dpr, rgb],
-    );
 
     const clearContext = () => {
         if (context.current) {
