@@ -132,7 +132,7 @@ const ProjectsPage = () => {
                                     </Link>
                                     <Link
                                         target="_blank"
-                                        href="https://github.com/hyoihz/pokehaven"
+                                        href="https://github.com/raynaldescala/pokehaven"
                                     >
                                         <Button className="h-full px-2 py-1 text-[10px] font-semibold transition-colors duration-200 hover:bg-accent hover:text-accent-foreground">
                                             <Globe className="!size-3" />
@@ -198,7 +198,7 @@ const ProjectsPage = () => {
                                     </Link>
                                     <Link
                                         target="_blank"
-                                        href="https://github.com/hyoihz/pokehaven"
+                                        href="https://github.com/raynaldescala/pokehaven"
                                     >
                                         <Button className="h-full px-2 py-1 text-[10px] font-semibold transition-colors duration-200 hover:bg-accent hover:text-accent-foreground">
                                             <Globe className="!size-3" />

@@ -110,7 +110,7 @@ const Intro = ({ preloaderDone, preloaderHasPlayed }: IntroProps) => {
                         <li>
                             <Link
                                 target="_blank"
-                                href="https://github.com/hyoihz"
+                                href="https://github.com/raynaldescala"
                             >
                                 <Github
                                     width={20}
