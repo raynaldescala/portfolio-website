@@ -27,6 +27,9 @@ export default function HomePage() {
 
         if (fromProjectsOr404) {
             // Preloader was skipped.
+            document.body.classList.remove("bg-foreground");
+            document.body.classList.add("bg-background");
+
             sessionStorage.removeItem("fromProjectsOr404");
             setLoading(false);
             setPreloaderHasPlayed(false);

@@ -20,6 +20,9 @@ const Preloader = () => {
 
     // Set viewport dimensions on mount
     useEffect(() => {
+        document.body.classList.remove("bg-foreground");
+        document.body.classList.add("bg-background");
+
         setDimension({ width: window.innerWidth, height: window.innerHeight });
     }, []);
 
