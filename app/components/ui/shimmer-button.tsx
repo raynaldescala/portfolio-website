@@ -38,7 +38,7 @@ export const ShimmerButton = React.forwardRef<
         ref,
     ) => {
         const [themeLoaded, setThemeLoaded] = useState(false);
-        const { theme } = useTheme();
+        const { resolvedTheme } = useTheme();
         const [isHovered, setIsHovered] = useState(false);
 
         useEffect(() => {
@@ -48,12 +48,12 @@ export const ShimmerButton = React.forwardRef<
         if (!themeLoaded) return null;
 
         const defaultShimmerColor =
-            theme === "dark" ? "hsl(60, 7%, 3%)" : "hsl(60, 10%, 90%)";
+            resolvedTheme === "dark" ? "hsl(60, 7%, 3%)" : "hsl(60, 10%, 90%)";
         const defaultBackground =
-            theme === "dark" ? "hsl(60, 10%, 90%)" : "hsl(60, 7%, 3%)";
+            resolvedTheme === "dark" ? "hsl(60, 10%, 90%)" : "hsl(60, 7%, 3%)";
 
         const effectiveBackground = isHovered
-            ? theme === "dark"
+            ? resolvedTheme === "dark"
                 ? "#c5c5b5"
                 : "#1a1a1a"
             : background || defaultBackground;
