@@ -190,7 +190,12 @@ const NavBar = ({ preloaderDone, preloaderHasPlayed }: NavBarProps) => {
                                 <Link
                                     href="/#contact"
                                     onClick={() => {
-                                        if (pathname === "/projects") {
+                                        if (
+                                            pathname === "/projects" ||
+                                            !["/", "/projects"].includes(
+                                                pathname,
+                                            )
+                                        ) {
                                             sessionStorage.setItem(
                                                 "fromProjectsOr404",
                                                 "true",
