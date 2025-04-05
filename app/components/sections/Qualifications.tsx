@@ -9,8 +9,8 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 interface QualificationsProps {
-    preloaderDone: boolean; // Optional with default value
-    preloaderHasPlayed: boolean; // Optional with default value
+    preloaderDone: boolean;
+    preloaderHasPlayed: boolean;
 }
 
 const qualificationsVariants = {

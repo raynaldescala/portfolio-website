@@ -15,7 +15,7 @@ const containerVariants = {
         opacity: 1,
         transition: {
             staggerChildren: 0.2,
-            delayChildren: delay, // use custom delay
+            delayChildren: delay,
         },
     }),
 };
@@ -39,23 +39,19 @@ const imageVariants = {
 };
 
 const Intro = ({ preloaderDone, preloaderHasPlayed }: IntroProps) => {
-    // Determine animate state:
-    // If the preloader played, wait until it's done; otherwise, we delay the animation manually.
     const animateState = preloaderHasPlayed
         ? preloaderDone
             ? "visible"
             : "hidden"
         : "visible";
 
-    // Set a custom delay for children animations.
-    // If the preloader didn't play, we add a delay equal to the preloader duration (2s).
     const delayValue = preloaderHasPlayed ? 0.75 : 0;
 
     return (
         <motion.section
             className="flex flex-col items-center justify-between gap-32 sm:flex-row sm:gap-16"
             variants={containerVariants}
-            custom={delayValue} // pass the custom delay
+            custom={delayValue}
             initial="hidden"
             animate={animateState}
         >

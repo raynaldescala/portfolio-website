@@ -15,9 +15,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function HomePage() {
-    // `loading` controls the preloader's visibility (and exit animation).
     const [loading, setLoading] = useState(false);
-    // `preloaderHasPlayed` tracks whether the preloader was ever shown.
     const [preloaderHasPlayed, setPreloaderHasPlayed] = useState(false);
     const pathname = usePathname();
 
@@ -26,7 +24,6 @@ export default function HomePage() {
             sessionStorage.getItem("fromProjectsOr404") === "true";
 
         if (fromProjectsOr404) {
-            // Preloader was skipped.
             document.body.classList.remove("bg-foreground");
             document.body.classList.add("bg-background");
 
@@ -36,7 +33,6 @@ export default function HomePage() {
             return;
         }
 
-        // Otherwise, show the preloader.
         setLoading(true);
         setPreloaderHasPlayed(true);
         const timer = setTimeout(() => {
@@ -56,7 +52,6 @@ export default function HomePage() {
         return () => clearTimeout(timer);
     }, []);
 
-    // Set flag when leaving the /projects page.
     useEffect(() => {
         const handleBeforeUnload = () => {
             if (pathname === "/projects") {
@@ -106,7 +101,6 @@ export default function HomePage() {
                     preloaderHasPlayed={preloaderHasPlayed}
                 />
                 <div className="grid gap-16">
-                    {/* Pass both states so Intro can decide when to animate */}
                     <Intro
                         preloaderDone={!loading}
                         preloaderHasPlayed={preloaderHasPlayed}

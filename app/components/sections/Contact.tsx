@@ -30,7 +30,6 @@ const Contact = () => {
     const [loading, setLoading] = useState<boolean>(false);
     const { toast } = useToast();
 
-    // Validate a single field.
     const validateField = (
         field: keyof FormData,
         value: string,
@@ -51,14 +50,12 @@ const Contact = () => {
         return undefined;
     };
 
-    // Validate the entire form.
     const validateForm = (): Errors => {
         const newErrors: Errors = {};
         newErrors.name = validateField("name", formData.name);
         newErrors.email = validateField("email", formData.email);
         newErrors.message = validateField("message", formData.message);
 
-        // Remove fields with no error.
         Object.keys(newErrors).forEach((key) => {
             if (!newErrors[key as keyof Errors]) {
                 delete newErrors[key as keyof Errors];
@@ -68,7 +65,6 @@ const Contact = () => {
         return newErrors;
     };
 
-    // On every change, update the form state and (if already submitted once) validate that field.
     const handleChange = (
         e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     ) => {
@@ -100,17 +96,14 @@ const Contact = () => {
             });
             const data = await res.json();
             toast({
-                // title: "Success",
                 description: data.message,
             });
-            // On success, clear the inputs and reset the submission flag.
             setFormData({ name: "", email: "", message: "" });
             setHasSubmitted(false);
             setErrors({});
         } catch (error) {
             console.error(error);
             toast({
-                // title: "Error",
                 description: "Failed to send message",
                 variant: "destructive",
             });

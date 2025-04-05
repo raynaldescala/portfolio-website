@@ -8,8 +8,8 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 interface NavBarProps {
-    preloaderDone?: boolean; // Optional with default value
-    preloaderHasPlayed?: boolean; // Optional with default value
+    preloaderDone?: boolean;
+    preloaderHasPlayed?: boolean;
 }
 
 const navItems = [
@@ -35,7 +35,6 @@ const NavBar = ({ preloaderDone, preloaderHasPlayed }: NavBarProps) => {
     const [svgPaths, setSvgPaths] = useState({ initial: "", target: "" });
 
     useEffect(() => {
-        // Client-side only code
         const calculatePaths = () => {
             const height =
                 typeof window !== "undefined" ? window.innerHeight : 0;
@@ -47,14 +46,10 @@ const NavBar = ({ preloaderDone, preloaderHasPlayed }: NavBarProps) => {
 
         setSvgPaths(calculatePaths());
 
-        // Handle window resize
         const handleResize = () => setSvgPaths(calculatePaths());
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
-
-    // const initialPath = `M100 0 L200 0 L200 ${window.innerHeight} L100 ${window.innerHeight} Q-100 ${window.innerHeight / 2} 100 0`;
-    // const targetPath = `M100 0 L200 0 L200 ${window.innerHeight} L100 ${window.innerHeight} Q100 ${window.innerHeight / 2} 100 0`;
 
     const curve = {
         initial: { d: svgPaths.initial },
@@ -219,7 +214,6 @@ const NavBar = ({ preloaderDone, preloaderHasPlayed }: NavBarProps) => {
                                 className="relative z-[1] sm:hidden"
                             >
                                 <div className="absolute flex h-full w-full items-center justify-center overflow-visible">
-                                    {/* Top Line */}
                                     <div
                                         className={`absolute left-1/2 h-px w-4 origin-center -translate-x-1/2 bg-current transition-all duration-300 ${
                                             isActive
@@ -227,7 +221,6 @@ const NavBar = ({ preloaderDone, preloaderHasPlayed }: NavBarProps) => {
                                                 : "top-1/2 -translate-y-1"
                                         }`}
                                     />
-                                    {/* Bottom Line */}
                                     <div
                                         className={`absolute left-1/2 h-px w-4 origin-center -translate-x-1/2 bg-current transition-all duration-300 ${
                                             isActive

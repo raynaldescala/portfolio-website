@@ -5,11 +5,10 @@ export async function POST(req: Request) {
     try {
         const { name, email, message } = await req.json();
 
-        // Use environment variables directly
         const transporter = nodemailer.createTransport({
             service: "gmail",
             auth: {
-                user: process.env.SMTP_EMAIL, // No need for a package!
+                user: process.env.SMTP_EMAIL,
                 pass: process.env.SMTP_PASSWORD,
             },
         });

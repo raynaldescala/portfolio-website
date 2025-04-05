@@ -9,7 +9,6 @@ export default function DynamicParticles() {
     const [particleColor, setParticleColor] = useState("#ffffff");
 
     useEffect(() => {
-        // For example: white particles in dark mode, black in light mode.
         setParticleColor(resolvedTheme === "dark" ? "#ffffff" : "#000000");
     }, [resolvedTheme]);
 

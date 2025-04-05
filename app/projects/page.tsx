@@ -11,7 +11,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 
-// Variants for the heading
 const headingVariants = {
     hidden: { opacity: 0, x: -50 },
     visible: {
@@ -21,17 +20,15 @@ const headingVariants = {
     },
 };
 
-// Variants for the cards container
 const cardsContainerVariants = {
     hidden: {},
     visible: {
         transition: {
-            staggerChildren: 0.2, // Automatically staggers children
+            staggerChildren: 0.2,
         },
     },
 };
 
-// Variants for individual cards
 const cardVariants = {
     hidden: { opacity: 0, y: -20 },
     visible: {
