@@ -102,7 +102,7 @@ const Qualifications = ({
                                 </li>
                             </ul>
                         </li>
-                        <li className="relative ml-10 py-4">
+                        {/* <li className="relative ml-10 py-4">
                             <span className="absolute -start-16 flex items-center justify-center">
                                 <Image
                                     src="/logos/creotec.webp"
@@ -142,7 +142,7 @@ const Qualifications = ({
                                     organization and efficiency.
                                 </li>
                             </ul>
-                        </li>
+                        </li> */}
                     </ol>
                 </TabsContent>
                 <TabsContent value="education" className="rounded-lg border">
