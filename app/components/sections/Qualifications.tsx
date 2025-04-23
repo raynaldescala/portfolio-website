@@ -79,30 +79,26 @@ const Qualifications = ({
                             </span>
                             <ul className="ml-4 grid list-outside list-disc gap-1">
                                 <li className="text-sm text-muted transition-colors duration-200">
-                                    Gained foundational knowledge of postal
-                                    operations by learning to update delivery
-                                    statuses and track parcels through guidance
-                                    from colleagues, fostering a supportive
-                                    environment
+                                    Updated delivery statuses by inputting
+                                    receiver details using tracking numbers,
+                                    ensuring accurate and timely data reflection
+                                    in the tracking system.
                                 </li>
                                 <li className="text-sm text-muted transition-colors duration-200">
-                                    Demonstrated increased autonomy in encoding
-                                    tasks by independently managing delivery
-                                    updates and handling complex tracking issues
-                                    through enhanced familiarity with the
-                                    system.
+                                    Leveraged Optical Character Recognition
+                                    (OCR) to extract tracking numbers from faded
+                                    barcodes, securing data integrity despite
+                                    print degradation.
                                 </li>
                                 <li className="text-sm text-muted transition-colors duration-200">
-                                    Enhanced problem-solving skills and
-                                    showcased resilience by addressing
-                                    challenges with faded barcodes and illegible
-                                    handwriting through innovative strategies
-                                    while maintaining productivity despite
-                                    recurring technology issues.
+                                    Adapted to website outages by encoding
+                                    delivered items for transmittal in Excel,
+                                    mitigating disruptions and sustaining
+                                    productivity.
                                 </li>
                             </ul>
                         </li>
-                        {/* <li className="relative ml-10 py-4">
+                        <li className="relative ml-10 py-4">
                             <span className="absolute -start-16 flex items-center justify-center">
                                 <Image
                                     src="/logos/creotec.webp"
@@ -134,15 +130,15 @@ const Qualifications = ({
                                     while maintaining production quality
                                     standards.
                                 </li>
-                                <li className="text-sm text-muted transition-colors duration-200">
+                                {/* <li className="text-sm text-muted transition-colors duration-200">
                                     Learned the 5S methodology through the
                                     lecture provided and applied it to
                                     streamline quality assurance processes for
                                     microcontrollers, enhancing workplace
                                     organization and efficiency.
-                                </li>
+                                </li> */}
                             </ul>
-                        </li> */}
+                        </li>
                     </ol>
                 </TabsContent>
                 <TabsContent value="education" className="rounded-lg border">
