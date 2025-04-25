@@ -164,9 +164,8 @@ const Qualifications = ({
                             </span>
                             <ul className="ml-4 grid list-outside list-disc gap-1">
                                 <li className="text-sm text-muted transition-colors duration-200">
-                                    Earned Cum Laude honors for academic
-                                    excellence, graduating with a grade of
-                                    1.21/1.00
+                                    Graduated with Cum Laude honors,
+                                    demonstrating consistent academic excellence
                                 </li>
                                 <li className="text-sm text-muted transition-colors duration-200">
                                     Received the Best in Thesis Award for the
