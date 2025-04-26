@@ -84,9 +84,9 @@ const ProjectsPage = () => {
                                 <div>
                                     <Image
                                         src={
-                                            resolvedTheme === "light"
-                                                ? "/thumbnails/tracklet-dark.webp"
-                                                : "/thumbnails/tracklet-light.webp"
+                                            resolvedTheme === "dark"
+                                                ? "/thumbnails/tracklet-light.webp"
+                                                : "/thumbnails/tracklet-dark.webp"
                                         }
                                         alt="tracklet website thumbnail"
                                         width={500}
