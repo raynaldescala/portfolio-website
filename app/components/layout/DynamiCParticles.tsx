@@ -14,7 +14,7 @@ export default function DynamicParticles() {
 
     return (
         <Particles
-            className="pointer-events-none fixed inset-0 -z-10"
+            className="pointer-events-none fixed inset-0 z-0"
             quantity={100}
             ease={80}
             color={particleColor}
