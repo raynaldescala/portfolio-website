@@ -79,7 +79,7 @@ const Intro = ({ preloaderDone, preloaderHasPlayed }: IntroProps) => {
                 <div className="flex items-center gap-8">
                     <Link
                         target="_blank"
-                        href="/resume/Raynald_Escala_Resume.pdf"
+                        href="/resume/RaynaldEscala_Resume.pdf"
                     >
                         <ShimmerButton className="flex items-center px-4 py-2 text-sm font-medium transition-colors duration-200">
                             Resume
