@@ -7,7 +7,6 @@ import { Button } from "@/app/components/ui/button";
 import { motion } from "framer-motion";
 import Lenis from "lenis";
 import { Github, Globe } from "lucide-react";
-import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
@@ -40,8 +39,6 @@ const cardVariants = {
 };
 
 const ProjectsPage = () => {
-    const { resolvedTheme } = useTheme();
-
     useEffect(() => {
         const lenis = new Lenis({
             duration: 1.5,
@@ -83,11 +80,7 @@ const ProjectsPage = () => {
                             >
                                 <div>
                                     <Image
-                                        src={
-                                            resolvedTheme === "dark"
-                                                ? "/thumbnails/tracklet-light.webp"
-                                                : "/thumbnails/tracklet-dark.webp"
-                                        }
+                                        src="/thumbnails/tracklet-light.webp"
                                         alt="tracklet website thumbnail"
                                         width={500}
                                         height={300}

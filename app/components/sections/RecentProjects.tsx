@@ -1,13 +1,10 @@
 import { Badge } from "@/app/components/ui/badge";
 import { Button } from "@/app/components/ui/button";
 import { ArrowRight, Github, Globe } from "lucide-react";
-import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 
 const RecentProjects = () => {
-    const { resolvedTheme } = useTheme();
-
     return (
         <section className="grid gap-8">
             <div className="flex items-center justify-between">
@@ -26,11 +23,7 @@ const RecentProjects = () => {
                 <div className="border-gray-90 grid grid-rows-[1fr_auto] gap-6 rounded-lg border p-6">
                     <div>
                         <Image
-                            src={
-                                resolvedTheme === "dark"
-                                    ? "/thumbnails/tracklet-light.webp"
-                                    : "/thumbnails/tracklet-dark.webp"
-                            }
+                            src="/thumbnails/tracklet-light.webp"
                             alt="tracklet website thumbnail"
                             width={500}
                             height={300}
