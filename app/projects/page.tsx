@@ -80,7 +80,7 @@ const ProjectsPage = () => {
                             >
                                 <div>
                                     <Image
-                                        src="/thumbnails/tracklet-light.webp"
+                                        src="/thumbnails/tracklet.webp"
                                         alt="tracklet website thumbnail"
                                         width={500}
                                         height={300}

@@ -23,7 +23,7 @@ const RecentProjects = () => {
                 <div className="border-gray-90 grid grid-rows-[1fr_auto] gap-6 rounded-lg border p-6">
                     <div>
                         <Image
-                            src="/thumbnails/tracklet-light.webp"
+                            src="/thumbnails/tracklet.webp"
                             alt="tracklet website thumbnail"
                             width={500}
                             height={300}
