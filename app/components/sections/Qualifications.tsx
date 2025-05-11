@@ -109,7 +109,7 @@ const Qualifications = ({
                                 ></Image>
                             </span>
                             <span className="block text-xs font-normal leading-tight text-highlight transition-colors duration-200">
-                                Sep. 2019 – Sep. 2019
+                                Sep 2019 – Sep 2019
                             </span>
                             <h3 className="flex items-center text-lg font-semibold leading-tight text-foreground transition-colors duration-200">
                                 Quality Assurance Intern
@@ -154,7 +154,7 @@ const Qualifications = ({
                                 ></Image>
                             </span>
                             <span className="block text-xs font-normal leading-tight text-highlight transition-colors duration-200">
-                                March 2021 - Aug. 2024
+                                March 2021 – Aug 2024
                             </span>
                             <h3 className="flex items-center text-lg font-semibold leading-tight text-foreground transition-colors duration-200">
                                 National College of Science and Technology
@@ -187,7 +187,7 @@ const Qualifications = ({
                                 ></Image>
                             </span>
                             <span className="block text-xs font-normal leading-tight text-highlight transition-colors duration-200">
-                                Aug. 2018 – June 2020
+                                Aug 2018 – June 2020
                             </span>
                             <h3 className="flex items-center text-lg font-semibold leading-tight text-foreground transition-colors duration-200">
                                 Philippine Christian University
