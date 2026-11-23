@@ -59,6 +59,55 @@ const Qualifications = ({
                 <TabsContent value="experience" className="rounded-lg border">
                     <ol className="relative ml-10 mr-6 border-s sm:mr-10">
                         <li className="relative ml-10 py-4">
+                            <span className="absolute -start-16 flex items-center justify-center overflow-hidden rounded-full bg-secondary dark:bg-muted">
+                                <Image
+                                    src="/logos/ews.webp"
+                                    alt="Endsofttech Web Solutions logo"
+                                    width={46}
+                                    height={46}
+                                    className="translate-y-[3px]"
+                                />
+                            </span>
+                            <span className="block text-xs font-normal leading-tight text-highlight transition-colors duration-200">
+                                June 2025 – November 2026
+                            </span>
+                            <h3 className="flex items-center text-lg font-semibold leading-tight text-foreground transition-colors duration-200">
+                                Full-stack Developer
+                            </h3>
+                            <span className="mb-2 block text-sm font-normal leading-tight text-highlight transition-colors duration-200">
+                                Endsofttech Web Solutions
+                            </span>
+                            <ul className="ml-4 grid list-outside list-disc gap-1">
+                                <li className="text-sm text-muted transition-colors duration-200">
+                                    Implemented consultation payment workflows
+                                    using Node.js and MySQL, covering wallet
+                                    top-ups, booking fund holds, deductions, and
+                                    refunds.
+                                </li>
+                                <li className="text-sm text-muted transition-colors duration-200">
+                                    Developed PostgreSQL-backed safeguards for
+                                    branch transfers and deletions using
+                                    transactions, locking, and dependency checks.
+                                </li>
+                                <li className="text-sm text-muted transition-colors duration-200">
+                                    Integrated Zoom Video SDK into React
+                                    consultations with screen sharing, reconnect
+                                    handling, and booking-based access controls.
+                                </li>
+                                <li className="text-sm text-muted transition-colors duration-200">
+                                    Integrated a third-party POS system through
+                                    catalog matching, webhook-driven price
+                                    updates, and reconciliation workflows.
+                                </li>
+                                <li className="text-sm text-muted transition-colors duration-200">
+                                    Implemented passwordless email/SMS
+                                    authentication and OAuth account linking
+                                    with verification and authentication state
+                                    handling.
+                                </li>
+                            </ul>
+                        </li>
+                        <li className="relative ml-10 py-4">
                             <span className="absolute -start-16 flex items-center justify-center">
                                 <Image
                                     src="/logos/phlpost.webp"
