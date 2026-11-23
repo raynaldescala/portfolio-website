@@ -64,16 +64,17 @@ const Intro = ({ preloaderDone, preloaderHasPlayed }: IntroProps) => {
                         Raynald Escala
                     </h1>
                     <p className="font-medium text-highlight transition-colors duration-200">
-                        Aspiring Fullstack Developer
+                        Full-stack Developer
                     </p>
                 </div>
                 <p className="font-medium transition-colors duration-200">
-                    Kamusta 👋🏼 — I&apos;m a web enthusiast based in the
-                    Philippines, constantly exploring new technologies to craft
-                    seamless web experiences.{" "}
+                    Kamusta! 👋🏼 I&apos;m a Full-stack Developer based in the
+                    Philippines, building production web applications with
+                    React, Node.js, and relational databases.{" "}
                     <span className="text-highlight transition-colors duration-200">
-                        Eager to learn and transform ideas into intuitive,
-                        user-friendly solutions that simplify web interactions.
+                        I turn business requirements into end-to-end features,
+                        from user interfaces to backend APIs and third-party
+                        integrations.
                     </span>
                 </p>
                 <div className="flex items-center gap-8">

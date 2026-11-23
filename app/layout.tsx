@@ -20,10 +20,10 @@ const calistoga = Calistoga({
 });
 
 export const metadata: Metadata = {
-    title: "Raynald Escala's Portfolio",
+    title: "Raynald Escala | Full-stack Developer",
 
     description:
-        "Hey, I'm Raynald Escala! Welcome to my portfolio, a space where you can explore my experience, projects, and what I’m all about.",
+        "Portfolio of Raynald Escala, a Full-stack Developer with experience building production web applications using React, Node.js, Express, and relational databases.",
     icons: {
         icon: "/favicon.ico",
     },
